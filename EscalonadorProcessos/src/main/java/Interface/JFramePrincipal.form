@@ -4,12 +4,86 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="Algoritmos">
           <Properties>
             <Property name="text" type="java.lang.String" value="Algoritmos"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="FIFO">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="FIFO"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FIFOActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="tarefaMaisCurt">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Tarefa Mais Curta Primeiro"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tarefaMaisCurtActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="proxMenosTmpRest">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Pr&#xf3;ximo Menos Tempo Restante"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="proxMenosTmpRestActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="chaveamentoCircular">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Chaveamento Circular"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chaveamentoCircularActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="escPrioridade">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Escalonamento por Prioridade"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="escPrioridadeActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="escGarantido">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Escalonamento Garantido"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="escGarantidoActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="escLoteria">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Escalonamento Loteria"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="escLoteriaActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="escFracaoJusta">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Escalonamento Fra&#xe7;&#xe3;o Justa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="escFracaoJustaActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="Editar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Editar"/>
           </Properties>
@@ -56,44 +130,51 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
+                  <EmptySpace pref="75" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="barraProgresso6" min="-2" pref="285" max="-2" attributes="0"/>
-                      <Component id="barraProgresso7" min="-2" pref="285" max="-2" attributes="0"/>
-                      <Component id="barraProgresso5" min="-2" pref="285" max="-2" attributes="0"/>
-                      <Component id="barraProgresso4" min="-2" pref="285" max="-2" attributes="0"/>
-                      <Component id="barraProgresso3" min="-2" pref="285" max="-2" attributes="0"/>
-                      <Component id="barraProgresso2" min="-2" pref="285" max="-2" attributes="0"/>
-                      <Component id="barraProgresso1" min="-2" pref="285" max="-2" attributes="0"/>
                       <Component id="botaoIniciar" min="-2" max="-2" attributes="0"/>
-                      <Component id="barraProgresso" min="-2" pref="285" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="barraProgresso" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="barraProgresso1" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="barraProgresso2" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="barraProgresso3" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="barraProgresso4" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="barraProgresso5" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="barraProgresso6" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="barraProgresso7" min="-2" pref="13" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="barraProgresso8" min="-2" pref="13" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="305" max="32767" attributes="0"/>
+                  <EmptySpace pref="335" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="barraProgresso" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="barraProgresso1" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="barraProgresso2" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="barraProgresso3" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="barraProgresso4" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="barraProgresso5" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="barraProgresso7" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Component id="barraProgresso6" min="-2" pref="14" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="barraProgresso" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso1" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso2" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso5" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso4" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso3" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso7" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso6" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
+                      <Component id="barraProgresso8" min="-2" pref="232" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="61" max="32767" attributes="0"/>
                   <Component id="botaoIniciar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -122,6 +203,8 @@
         <Component class="javax.swing.JProgressBar" name="barraProgresso6">
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso7">
+        </Component>
+        <Component class="javax.swing.JProgressBar" name="barraProgresso8">
         </Component>
       </SubComponents>
     </Container>

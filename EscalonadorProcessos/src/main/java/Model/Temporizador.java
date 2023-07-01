@@ -1,4 +1,5 @@
 package Model;
+
 import javax.swing.JProgressBar;
 
 public class Temporizador extends Thread {
@@ -6,6 +7,7 @@ public class Temporizador extends Thread {
     public Temporizador (JProgressBar pBar) {
         jBar = pBar;
         jBar.setValue(100);
+        jBar.setOrientation(JProgressBar.VERTICAL);
     }
     public void run () {
         while(jBar.getValue() > 0 ) {
