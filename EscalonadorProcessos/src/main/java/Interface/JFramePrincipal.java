@@ -1,35 +1,32 @@
 package Interface;
 
-import Model.*;
 import Main.*;
+import java.util.ArrayList;
+import javax.swing.JProgressBar;
 
 public class JFramePrincipal extends javax.swing.JFrame {
     
     private int escolhaAlgoritmo;
+    public static ArrayList<JProgressBar> barrasProcessos = new ArrayList();
     
     public JFramePrincipal() {
         initComponents();
-        MenuAlgoritmos menuAlg = new MenuAlgoritmos();
-        jMenuBar1.add(menuAlg);
-        barraProgresso.setVisible(false);
-        barraProgresso1.setVisible(false);
-        barraProgresso2.setVisible(false);
-        barraProgresso3.setVisible(false);
-        barraProgresso4.setVisible(false);
-        barraProgresso5.setVisible(false);
-        barraProgresso6.setVisible(false);  
-        barraProgresso7.setVisible(false);
-        barraProgresso8.setVisible(false);
-        FIFO.setState(true);
-        chaveamentoCircular.setState(false);
-        escFracaoJusta.setState(false);
-        escGarantido.setState(false);
-        escLoteria.setState(false);
-        escPrioridade.setState(false);
-        proxMenosTmpRest.setState(false);
-        tarefaMaisCurt.setState(false);
+        nomeAlgoritmo.setText("Primeiro Chegar, Primeiro Servido");
+        barrasProcessos.add(barraProgresso);
+        barrasProcessos.add(barraProgresso1);
+        barrasProcessos.add(barraProgresso2);
+        barrasProcessos.add(barraProgresso3);
+        barrasProcessos.add(barraProgresso4);
+        barrasProcessos.add(barraProgresso5);
+        barrasProcessos.add(barraProgresso6);
+        barrasProcessos.add(barraProgresso7);
+        barrasProcessos.add(barraProgresso8);
+        barrasProcessos.add(barraProgresso9);
+        barrasProcessos.add(barraProgresso10);
+        barrasProcessos.add(barraProgresso11);
+        for(JProgressBar barra : barrasProcessos) barra.setValue(0);
+                info.setEditable(false);
     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,16 +42,22 @@ public class JFramePrincipal extends javax.swing.JFrame {
         barraProgresso6 = new javax.swing.JProgressBar();
         barraProgresso7 = new javax.swing.JProgressBar();
         barraProgresso8 = new javax.swing.JProgressBar();
+        barraProgresso9 = new javax.swing.JProgressBar();
+        barraProgresso10 = new javax.swing.JProgressBar();
+        barraProgresso11 = new javax.swing.JProgressBar();
+        nomeAlgoritmo = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        info = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         Algoritmos = new javax.swing.JMenu();
-        FIFO = new javax.swing.JCheckBoxMenuItem();
-        tarefaMaisCurt = new javax.swing.JCheckBoxMenuItem();
-        proxMenosTmpRest = new javax.swing.JCheckBoxMenuItem();
-        chaveamentoCircular = new javax.swing.JCheckBoxMenuItem();
-        escPrioridade = new javax.swing.JCheckBoxMenuItem();
-        escGarantido = new javax.swing.JCheckBoxMenuItem();
-        escLoteria = new javax.swing.JCheckBoxMenuItem();
-        escFracaoJusta = new javax.swing.JCheckBoxMenuItem();
+        FIFO = new javax.swing.JMenuItem();
+        tarefaMaisCurtaPrimeiro = new javax.swing.JMenuItem();
+        proxMenosTempo = new javax.swing.JMenuItem();
+        escChaveamentoCircular = new javax.swing.JMenuItem();
+        escPrioridades = new javax.swing.JMenuItem();
+        escGarantido = new javax.swing.JMenuItem();
+        escLoteria = new javax.swing.JMenuItem();
+        escFracaoJusta = new javax.swing.JMenuItem();
         Editar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,12 +69,20 @@ public class JFramePrincipal extends javax.swing.JFrame {
             }
         });
 
+        nomeAlgoritmo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        nomeAlgoritmo.setText("Algoritmo");
+
+        info.setColumns(14);
+        info.setRows(5);
+        info.setTabSize(1);
+        jScrollPane2.setViewportView(info);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(75, Short.MAX_VALUE)
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoIniciar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -91,31 +102,48 @@ public class JFramePrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(barraProgresso7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(barraProgresso8, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(335, Short.MAX_VALUE))
+                        .addComponent(barraProgresso8, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso9, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso10, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nomeAlgoritmo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(barraProgresso, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso5, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso4, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso7, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso6, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barraProgresso8, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(nomeAlgoritmo)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(barraProgresso, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso2, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso5, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso4, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso3, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso7, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso6, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso8, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso9, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso10, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                    .addComponent(barraProgresso11, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(botaoIniciar)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         Algoritmos.setText("Algoritmos");
 
-        FIFO.setSelected(true);
         FIFO.setText("FIFO");
         FIFO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,43 +152,38 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         Algoritmos.add(FIFO);
 
-        tarefaMaisCurt.setSelected(true);
-        tarefaMaisCurt.setText("Tarefa Mais Curta Primeiro");
-        tarefaMaisCurt.addActionListener(new java.awt.event.ActionListener() {
+        tarefaMaisCurtaPrimeiro.setText("Mais Curta Primeiro");
+        tarefaMaisCurtaPrimeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tarefaMaisCurtActionPerformed(evt);
+                tarefaMaisCurtaPrimeiroActionPerformed(evt);
             }
         });
-        Algoritmos.add(tarefaMaisCurt);
+        Algoritmos.add(tarefaMaisCurtaPrimeiro);
 
-        proxMenosTmpRest.setSelected(true);
-        proxMenosTmpRest.setText("Próximo Menos Tempo Restante");
-        proxMenosTmpRest.addActionListener(new java.awt.event.ActionListener() {
+        proxMenosTempo.setText("Próximo Menos Tempo Restante");
+        proxMenosTempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                proxMenosTmpRestActionPerformed(evt);
+                proxMenosTempoActionPerformed(evt);
             }
         });
-        Algoritmos.add(proxMenosTmpRest);
+        Algoritmos.add(proxMenosTempo);
 
-        chaveamentoCircular.setSelected(true);
-        chaveamentoCircular.setText("Chaveamento Circular");
-        chaveamentoCircular.addActionListener(new java.awt.event.ActionListener() {
+        escChaveamentoCircular.setText("Chaveamento Circular");
+        escChaveamentoCircular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chaveamentoCircularActionPerformed(evt);
+                escChaveamentoCircularActionPerformed(evt);
             }
         });
-        Algoritmos.add(chaveamentoCircular);
+        Algoritmos.add(escChaveamentoCircular);
 
-        escPrioridade.setSelected(true);
-        escPrioridade.setText("Escalonamento por Prioridade");
-        escPrioridade.addActionListener(new java.awt.event.ActionListener() {
+        escPrioridades.setText("Escalonamento por Prioridade");
+        escPrioridades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                escPrioridadeActionPerformed(evt);
+                escPrioridadesActionPerformed(evt);
             }
         });
-        Algoritmos.add(escPrioridade);
+        Algoritmos.add(escPrioridades);
 
-        escGarantido.setSelected(true);
         escGarantido.setText("Escalonamento Garantido");
         escGarantido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,8 +192,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         Algoritmos.add(escGarantido);
 
-        escLoteria.setSelected(true);
-        escLoteria.setText("Escalonamento Loteria");
+        escLoteria.setText("Escalonamento por Loteria");
         escLoteria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 escLoteriaActionPerformed(evt);
@@ -178,8 +200,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         Algoritmos.add(escLoteria);
 
-        escFracaoJusta.setSelected(true);
-        escFracaoJusta.setText("Escalonamento Fração Justa");
+        escFracaoJusta.setText("Escalonamento por Fração Justa");
         escFracaoJusta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 escFracaoJustaActionPerformed(evt);
@@ -209,9 +230,19 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIniciarActionPerformed
+
+        for(int i=1; i <= 10; i++) {
+            try {
+                Thread.sleep(1000);
+                info.append(Integer.toString(i));                
+            } catch(Exception e) {
+                System.out.println("Erro!");
+            }
+        }  
+        
         switch(escolhaAlgoritmo) {
             case 1:
-                Main.esc.fifo();
+                Main.esc.fifo();                
                 break;
             case 2:
                 Main.esc.tarMaisCurta();
@@ -235,67 +266,46 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 Main.esc.fracaoJusta();
                 break;
         }
-        barraProgresso.setVisible(true);
-        barraProgresso1.setVisible(true);
-        barraProgresso2.setVisible(true);
-        barraProgresso3.setVisible(true);
-        barraProgresso4.setVisible(true);
-        barraProgresso5.setVisible(true);
-        barraProgresso6.setVisible(true);  
-        barraProgresso7.setVisible(true);  
-        barraProgresso8.setVisible(true);
-        Temporizador temp1 = new Temporizador(barraProgresso);
-        Temporizador temp2 = new Temporizador(barraProgresso1);
-        Temporizador temp3 = new Temporizador(barraProgresso2);
-        Temporizador temp4 = new Temporizador(barraProgresso3);
-        Temporizador temp5 = new Temporizador(barraProgresso4);
-        Temporizador temp6 = new Temporizador(barraProgresso5);
-        Temporizador temp7 = new Temporizador(barraProgresso6);        
-        Temporizador temp8 = new Temporizador(barraProgresso7);
-        Temporizador temp9 = new Temporizador(barraProgresso8);
-        temp1.start();
-        temp2.start();
-        temp3.start();
-        temp4.start();
-        temp5.start();
-        temp6.start();
-        temp7.start();        
-        temp8.start();  
-        temp9.start();
     }//GEN-LAST:event_botaoIniciarActionPerformed
 
     private void FIFOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FIFOActionPerformed
         escolhaAlgoritmo=1;
+        nomeAlgoritmo.setText("Primeiro Chegar, Primeiro Servido");
     }//GEN-LAST:event_FIFOActionPerformed
 
-    private void tarefaMaisCurtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarefaMaisCurtActionPerformed
-        if(FIFO.isSelected())
-            FIFO.setState(false);
+    private void tarefaMaisCurtaPrimeiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tarefaMaisCurtaPrimeiroActionPerformed
         escolhaAlgoritmo=2;
-    }//GEN-LAST:event_tarefaMaisCurtActionPerformed
+        nomeAlgoritmo.setText("Tarefa Mais Curta Primeiro");
+    }//GEN-LAST:event_tarefaMaisCurtaPrimeiroActionPerformed
 
-    private void proxMenosTmpRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proxMenosTmpRestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_proxMenosTmpRestActionPerformed
+    private void proxMenosTempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proxMenosTempoActionPerformed
+        escolhaAlgoritmo=3;
+        nomeAlgoritmo.setText("Próximo Menos Tempo Restante");
+    }//GEN-LAST:event_proxMenosTempoActionPerformed
 
-    private void chaveamentoCircularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chaveamentoCircularActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_chaveamentoCircularActionPerformed
+    private void escChaveamentoCircularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escChaveamentoCircularActionPerformed
+        escolhaAlgoritmo=4;
+        nomeAlgoritmo.setText("Chaveamento Circular");
+    }//GEN-LAST:event_escChaveamentoCircularActionPerformed
 
-    private void escPrioridadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escPrioridadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_escPrioridadeActionPerformed
+    private void escPrioridadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escPrioridadesActionPerformed
+        escolhaAlgoritmo=5;
+        nomeAlgoritmo.setText("Escalonamento por Prioridades");
+    }//GEN-LAST:event_escPrioridadesActionPerformed
 
     private void escGarantidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escGarantidoActionPerformed
-        // TODO add your handling code here:
+        escolhaAlgoritmo=6;
+        nomeAlgoritmo.setText("Escalonamento Garantido");
     }//GEN-LAST:event_escGarantidoActionPerformed
 
     private void escLoteriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escLoteriaActionPerformed
-        // TODO add your handling code here:
+        escolhaAlgoritmo=7;
+        nomeAlgoritmo.setText("Escalonamento por Loteria");
     }//GEN-LAST:event_escLoteriaActionPerformed
 
     private void escFracaoJustaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escFracaoJustaActionPerformed
-        // TODO add your handling code here:
+        escolhaAlgoritmo=8;
+        nomeAlgoritmo.setText("Escalonamento por Fração Justa");
     }//GEN-LAST:event_escFracaoJustaActionPerformed
 
     public static void main(String args[]) {
@@ -309,9 +319,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Algoritmos;
     private javax.swing.JMenu Editar;
-    private javax.swing.JCheckBoxMenuItem FIFO;
+    private javax.swing.JMenuItem FIFO;
     private javax.swing.JProgressBar barraProgresso;
     private javax.swing.JProgressBar barraProgresso1;
+    private javax.swing.JProgressBar barraProgresso10;
+    private javax.swing.JProgressBar barraProgresso11;
     private javax.swing.JProgressBar barraProgresso2;
     private javax.swing.JProgressBar barraProgresso3;
     private javax.swing.JProgressBar barraProgresso4;
@@ -319,15 +331,19 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JProgressBar barraProgresso6;
     private javax.swing.JProgressBar barraProgresso7;
     private javax.swing.JProgressBar barraProgresso8;
+    private javax.swing.JProgressBar barraProgresso9;
     private javax.swing.JButton botaoIniciar;
-    private javax.swing.JCheckBoxMenuItem chaveamentoCircular;
-    private javax.swing.JCheckBoxMenuItem escFracaoJusta;
-    private javax.swing.JCheckBoxMenuItem escGarantido;
-    private javax.swing.JCheckBoxMenuItem escLoteria;
-    private javax.swing.JCheckBoxMenuItem escPrioridade;
+    private javax.swing.JMenuItem escChaveamentoCircular;
+    private javax.swing.JMenuItem escFracaoJusta;
+    private javax.swing.JMenuItem escGarantido;
+    private javax.swing.JMenuItem escLoteria;
+    private javax.swing.JMenuItem escPrioridades;
+    private javax.swing.JTextArea info;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JCheckBoxMenuItem proxMenosTmpRest;
-    private javax.swing.JCheckBoxMenuItem tarefaMaisCurt;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel nomeAlgoritmo;
+    private javax.swing.JMenuItem proxMenosTempo;
+    private javax.swing.JMenuItem tarefaMaisCurtaPrimeiro;
     // End of variables declaration//GEN-END:variables
 }

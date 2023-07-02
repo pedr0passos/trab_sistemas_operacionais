@@ -3,11 +3,16 @@ package Model;
 import javax.swing.JProgressBar;
 
 public class Temporizador extends Thread {
-    JProgressBar jBar;
-    public Temporizador (JProgressBar pBar) {
+    
+    private JProgressBar jBar;
+    private byte id;
+
+    
+    public Temporizador (JProgressBar pBar, byte id) {
         jBar = pBar;
         jBar.setValue(100);
         jBar.setOrientation(JProgressBar.VERTICAL);
+        this.id=id;
     }
     public void run () {
         while(jBar.getValue() > 0 ) {
