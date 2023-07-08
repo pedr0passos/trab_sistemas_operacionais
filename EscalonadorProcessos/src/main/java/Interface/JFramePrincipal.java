@@ -12,6 +12,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     public JFramePrincipal() {
         initComponents();
         nomeAlgoritmo.setText("Primeiro Chegar, Primeiro Servido");
+        escolhaAlgoritmo=1;
         barrasProcessos.add(barraProgresso);
         barrasProcessos.add(barraProgresso1);
         barrasProcessos.add(barraProgresso2);
@@ -24,8 +25,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
         barrasProcessos.add(barraProgresso9);
         barrasProcessos.add(barraProgresso10);
         barrasProcessos.add(barraProgresso11);
-        for(JProgressBar barra : barrasProcessos) barra.setValue(0);
-                info.setEditable(false);
+        for(JProgressBar barra : barrasProcessos) {
+            barra.setMaximum(Main.esc.getMaxTempProcessos());
+            barra.setValue(0);
+        }
+        info.setEditable(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -82,7 +86,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(64, Short.MAX_VALUE)
+                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoIniciar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -111,7 +115,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                         .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nomeAlgoritmo)
@@ -120,9 +124,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(nomeAlgoritmo)
-                .addGap(29, 29, 29)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2)
                     .addComponent(barraProgresso, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
@@ -139,7 +143,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                     .addComponent(barraProgresso11, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(botaoIniciar)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addGap(21, 21, 21))
         );
 
         Algoritmos.setText("Algoritmos");
@@ -230,16 +234,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIniciarActionPerformed
-
-        for(int i=1; i <= 10; i++) {
-            try {
-                Thread.sleep(1000);
-                info.append(Integer.toString(i));                
-            } catch(Exception e) {
-                System.out.println("Erro!");
-            }
-        }  
-        
         switch(escolhaAlgoritmo) {
             case 1:
                 Main.esc.fifo();                

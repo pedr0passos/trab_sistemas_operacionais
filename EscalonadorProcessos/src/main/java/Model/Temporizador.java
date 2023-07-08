@@ -4,16 +4,15 @@ import javax.swing.JProgressBar;
 
 public class Temporizador extends Thread {
     
-    private JProgressBar jBar;
-    private byte id;
-
+    private final JProgressBar jBar;
     
-    public Temporizador (JProgressBar pBar, byte id) {
+    public Temporizador (JProgressBar pBar) {
         jBar = pBar;
         jBar.setValue(100);
         jBar.setOrientation(JProgressBar.VERTICAL);
-        this.id=id;
     }
+    
+    @Override
     public void run () {
         while(jBar.getValue() > 0 ) {
             try {

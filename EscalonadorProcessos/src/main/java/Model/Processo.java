@@ -3,46 +3,37 @@ package Model;
 public class Processo {
     
     private byte id;
-    private boolean status;
-    private int tempoExecução;
+    private int tempoExecucao;
+    private int prioridade;
     
-    private Temporizador temporizador;
+    public Processo (byte id, int tempoExecucao, int prioridade){
+        this.id=id;
+        this.tempoExecucao=tempoExecucao;
+        this.prioridade=prioridade;
+    }
     
     public byte getId() {
         return id;
     }
 
-    public boolean isBlocked() {
-        return status;
-    }
-
-    public int getTempoExecução() {
-        return tempoExecução;
-    }
-
-    public Temporizador getTemporizador() {
-        return temporizador;
+    public int getTempoExecucao() {
+        return tempoExecucao;
     }
     
+    public int getPrioridade() {
+        return prioridade;
+    }
+    
+    // setters
     public void setId(byte id) {
         this.id = id;
     }
 
-    public void setTemporizador(Temporizador temporizador) {
-        this.temporizador = temporizador;
-    }
-
-    public void setTempoExecução(int tempoExecução) {
-        this.tempoExecução = tempoExecução;
-    }
-   
-    public void setBlocked(){
-        this.status = false;
-    }
-    public void setRunning() {
-        this.status = true;
+    public void setTempoExecucao(int tempoExecucao) {
+        this.tempoExecucao = tempoExecucao;
     }
     
-    
-    
+    public void setPrioridade(int prioridade) {
+        this.prioridade = prioridade;
+    }
 }
