@@ -7,6 +7,14 @@ public class Escalonador {
     public void mandaPraCPU (ArrayList<Processo> processo) {
         Main.cpu.executa(processo);
 
+    public Processo getMaisCurto () {
+        Processo menor = Main.memoria.getProcesso(0);
+        for ( Processo pr : Main.memoria.processos ) {
+            if ( pr.getTempoExecucao() < menor.getTempoExecucao() ) 
+                menor = pr;
+        }
+        return menor;
+
     }
     
     public void fifo(ArrayList<Processo> processos){
