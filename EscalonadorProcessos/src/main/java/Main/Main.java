@@ -5,11 +5,14 @@ import Model.*;
 
 public class Main {
     
-
-    public static Escalonador esc;
+    public static Memoria memoria;
+    public static CPU cpu;
     
     public static void main(String[] args) {
-        esc = new Escalonador();
+
+        memoria = new Memoria();
+        cpu = new CPU();
+        
         JFramePrincipal jFramePrincipal = new JFramePrincipal();
         jFramePrincipal.setLocationRelativeTo(null);
         jFramePrincipal.setVisible(true);

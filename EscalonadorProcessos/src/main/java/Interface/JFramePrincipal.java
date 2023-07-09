@@ -25,10 +25,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         barrasProcessos.add(barraProgresso9);
         barrasProcessos.add(barraProgresso10);
         barrasProcessos.add(barraProgresso11);
-        for(JProgressBar barra : barrasProcessos) {
-            barra.setMaximum(Main.esc.getMaxTempProcessos());
-            barra.setValue(0);
-        }
         info.setEditable(false);
     }
     @SuppressWarnings("unchecked")
@@ -86,7 +82,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoIniciar)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -115,7 +111,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
                         .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(nomeAlgoritmo)
@@ -124,9 +120,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addComponent(nomeAlgoritmo)
-                .addGap(26, 26, 26)
+                .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2)
                     .addComponent(barraProgresso, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
@@ -141,9 +137,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
                     .addComponent(barraProgresso9, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
                     .addComponent(barraProgresso10, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
                     .addComponent(barraProgresso11, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addComponent(botaoIniciar)
-                .addGap(21, 21, 21))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         Algoritmos.setText("Algoritmos");
@@ -234,32 +230,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoIniciarActionPerformed
-        switch(escolhaAlgoritmo) {
-            case 1:
-                Main.esc.fifo();                
-                break;
-            case 2:
-                Main.esc.tarMaisCurta();
-                break;
-            case 3:
-                Main.esc.proxMenosTmpRest();
-                break;
-            case 4:
-                Main.esc.chaveamentoCircular();
-                break;
-            case 5:
-                Main.esc.prioridades();
-                break;
-            case 6:
-                Main.esc.garantido();
-                break;
-            case 7:
-                Main.esc.loteria();
-                break;
-            case 8:
-                Main.esc.fracaoJusta();
-                break;
-        }
+
     }//GEN-LAST:event_botaoIniciarActionPerformed
 
     private void FIFOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FIFOActionPerformed

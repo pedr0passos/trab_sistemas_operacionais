@@ -1,6 +1,13 @@
 package Model;
 
+import Main.*;
+
 public class Escalonador {
+   
+    public void mandaPraCPU () {
+        Main.cpu.executa(Main.memoria.getProcesso(0));
+        Main.memoria.removeProcesso(0);
+    }
     
     public void fifo(){
 

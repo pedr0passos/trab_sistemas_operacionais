@@ -2,17 +2,17 @@ package Model;
 
 public class Processo {
     
-    private byte id;
+    private int id;
     private int tempoExecucao;
     private int prioridade;
     
-    public Processo (byte id, int tempoExecucao, int prioridade){
+    public Processo (int id, int tempoExecucao, int prioridade){
         this.id=id;
         this.tempoExecucao=tempoExecucao;
         this.prioridade=prioridade;
     }
     
-    public byte getId() {
+    public int getId() {
         return id;
     }
 
@@ -25,7 +25,7 @@ public class Processo {
     }
     
     // setters
-    public void setId(byte id) {
+    public void setId(int id) {
         this.id = id;
     }
 
