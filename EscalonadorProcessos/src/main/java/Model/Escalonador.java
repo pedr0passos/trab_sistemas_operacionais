@@ -1,11 +1,12 @@
 package Model;
 
 import Main.*;
+import java.util.Collections;
 
 public class Escalonador {
    
-    public void mandaPraCPU (Processo processo) {
-        Main.cpu.executa(proceso);
+    public void mandaPraCPU (ArrayList<Processo> processo) {
+        Main.cpu.executa(processo);
 
     }
     
@@ -18,7 +19,7 @@ public class Escalonador {
                     menorId = proximo;
                 }
             }
-            Escalonador.mandaPraCPU(menorId)
+            Escalonador.mandaPraCPU(menorId);
             processos.remove(menorId);
         }
     }
@@ -35,8 +36,9 @@ public class Escalonador {
         
     }
     
-    public void prioridades() {
-        
+    public void prioridades(ArrayList<Processo> processos) {
+
+        Collections.sort(processos, )
     }
     
     public void garantido() {
