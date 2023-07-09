@@ -59,5 +59,6 @@ public class Memoria {
     
     public void removeProcesso(int id){
         processos.get(id);
+        quantProcessos--;
     }
 }

@@ -4,9 +4,13 @@ import Main.*;
 
 public class Escalonador {
    
-    public void mandaPraCPU () {
-        Main.cpu.executa(Main.memoria.getProcesso(0));
-        Main.memoria.removeProcesso(0);
+    public Processo getMaisCurto () {
+        Processo menor = Main.memoria.getProcesso(0);
+        for ( Processo pr : Main.memoria.processos ) {
+            if ( pr.getTempoExecucao() < menor.getTempoExecucao() ) 
+                menor = pr;
+        }
+        return menor;
     }
     
     public void fifo(){
