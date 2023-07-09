@@ -1,7 +1,6 @@
 package Model;
 
 import Main.*;
-import java.util.Collections;
 
 public class Escalonador {
    
@@ -38,17 +37,28 @@ public class Escalonador {
     
     public void prioridades(ArrayList<Processo> processos) {
 
-        Collections.sort(processos, )
+       while(processos.size() >= 1){
+           Processo maior_prioridade = processos.getProcesso(0);
+
+           for (Processo proximo : processos){
+               if (proximo.getPrioridade() > maior_prioridade.getPrioridade()){
+                   maior_prioridade = proximo;
+               }
+           }
+           Escalonador.mandaPraCPU(maior_prioridade);
+           processos.remove(maior_prioridade);
+       }
+
     }
-    
+
     public void garantido() {
-        
+
     }
-    
+
     public void loteria() {
-        
+
     }
-    
+
     public void fracaoJusta() {
     
     }
