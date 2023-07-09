@@ -4,13 +4,23 @@ import Main.*;
 
 public class Escalonador {
    
-    public void mandaPraCPU () {
-        Main.cpu.executa(Main.memoria.getProcesso(0));
-        Main.memoria.removeProcesso(0);
+    public void mandaPraCPU (Processo processo) {
+        Main.cpu.executa(proceso);
+
     }
     
-    public void fifo(){
+    public void fifo(ArrayList<Processo> processos){
+        while(processos.size() >= 1){
+            Processo menorId = processos.getProcesso(0);
 
+            for (Processo proximo : processos){
+                if (proximo.getId() < menorId.getId()){
+                    menorId = proximo;
+                }
+            }
+            Escalonador.mandaPraCPU(menorId)
+            processos.remove(menorId);
+        }
     }
     
     public void tarMaisCurta() {
