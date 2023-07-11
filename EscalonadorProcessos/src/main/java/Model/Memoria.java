@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Memoria {
-    
-    // tamanho da memoria e a quantidade de processos que existem nela
-    private final int tamMemoria=10;
-    private int quantProcessos;
-    // intervalo das gerações dos processos
-    private final int minProcessos=3000;
-    private final int maxProcessos=7000;    
+    private final int tamMemoria;
+// tamanho da memoria e a quantidade de processos que existem nela
+        private int quantProcessosProcessados;
     
     // tamanho minimo e máximo dos processos
     private final int tamanhoMinimoProcesso=1;
@@ -19,30 +15,32 @@ public class Memoria {
     // intervalo de prioridade dos processos
     private final int minPrioridade=1;
     private final int maxPrioridade=4;
-    
-    // lista de processos na memória prontos para irem para a CPU 
-    public ArrayList<Processo> processos = new ArrayList(tamMemoria);
-    
+    // lista de processos na memória prontos para irem para a CPU
+    public ArrayList<Processo> processos;
     
     public Memoria () {
-        // thread feira para gerar processos 
-        Thread thread = new Thread(this::geraProcessos);
+        this.tamMemoria = 10;
+        this.processos = new ArrayList(tamMemoria);
+        new Thread() {
+            @Override        
+            public void run () {
+                geraProcessos();
+            }
+        }.start();
     }
     
     public int getQuantProcessos() {
-        return quantProcessos;
+        return processos.size();
     }
     
     public void geraProcessos() {
         int idProcesso=0;
-        while (quantProcessos <= tamMemoria) {
+        while (true) {
             try {
-                Thread.sleep(geraAleatorio(minProcessos, maxProcessos));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            processos.add(new Processo(idProcesso++, geraAleatorio(tamanhoMinimoProcesso, tamanhoMaximoProcesso), geraAleatorio(minPrioridade, maxPrioridade)));
-            quantProcessos++;
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {}
+            if (!isFull())
+                processos.add(new Processo(idProcesso++, geraAleatorio(tamanhoMinimoProcesso, tamanhoMaximoProcesso), geraAleatorio(minPrioridade, maxPrioridade)));            
         }
     }
     
@@ -54,11 +52,19 @@ public class Memoria {
     
     public int geraAleatorio(int min, int max){
         Random numeroAleatorio = new Random();
-        return numeroAleatorio.nextInt((max - min) + 1) + max;
+        return numeroAleatorio.nextInt((max - min) + 1) + min;
     }
     
-    public void removeProcesso(int id){
-        processos.get(id);
-        quantProcessos--;
+    public void removeProcesso(Processo processo){
+        processos.remove(processo);
+        quantProcessosProcessados++;
+    }
+    
+    public boolean isFull () {
+        return processos.size() == 10;
+    }
+    
+    public int getTamMaxProc() {
+        return tamanhoMaximoProcesso;
     }
 }

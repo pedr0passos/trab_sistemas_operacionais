@@ -8,8 +8,6 @@ public class Temporizador extends Thread {
     
     public Temporizador (JProgressBar pBar) {
         jBar = pBar;
-        jBar.setValue(100);
-        jBar.setOrientation(JProgressBar.VERTICAL);
     }
     
     @Override
