@@ -14,6 +14,7 @@ public class Escalonador {
             if (pr.getTempoExecucao() < menor.getTempoExecucao()) 
                 menor = pr;
         return menor;
+
     }
     
     public Processo getPrimeiroProcesso () {
@@ -33,7 +34,6 @@ public class Escalonador {
             Processo processo = getPrimeiroProcesso();
             addProcessoCPU(processo);
         }
-
     }
     
     public void tarMaisCurta() {
@@ -57,15 +57,15 @@ public class Escalonador {
             addProcessoCPU(maior_prioridade);
         }
     }
-    
+
     public void garantido() {
-        
+
     }
-    
+
     public void loteria() {
-        
+
     }
-    
+
     public void fracaoJusta() {
     
     }
