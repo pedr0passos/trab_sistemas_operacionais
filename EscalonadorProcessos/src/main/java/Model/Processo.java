@@ -5,6 +5,7 @@ public class Processo {
     private int id;
     private int tempoExecucao;
     private int prioridade;
+    private int ticket;
     
     public Processo (int id, int tempoExecucao, int prioridade){
         this.id=id;
@@ -24,6 +25,10 @@ public class Processo {
         return prioridade;
     }
     
+    public int getTicket() {
+        return ticket;
+    }
+    
     // setters
     public void setId(int id) {
         this.id = id;
@@ -35,5 +40,9 @@ public class Processo {
     
     public void setPrioridade(int prioridade) {
         this.prioridade = prioridade;
+    }
+    
+    public void setTicket (int ticket ) {
+        this.ticket = ticket;
     }
 }

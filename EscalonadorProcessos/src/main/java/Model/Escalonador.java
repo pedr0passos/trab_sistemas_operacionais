@@ -4,32 +4,43 @@ import Main.*;
 
 public class Escalonador {
 
-    public void mandaPraCPU (Processo processo) {
+    public void addProcessoCPU (Processo processo) {
         Main.cpu.executa(processo);
     }
 
     public Processo getMaisCurto () {
-        Processo menor = Main.memoria.getProcesso(0);
-        for ( Processo pr : Main.memoria.processos ) {
+        Processo menor = Main.memoria.processos.get(0);
+        for ( Processo pr : Main.memoria.processos ) 
             if (pr.getTempoExecucao() < menor.getTempoExecucao()) 
                 menor = pr;
-        }
         return menor;
     }
     
-    public void fifo(){
-        while(Main.memoria.processos.size() >= 1){
-            Processo menorId = Main.memoria.getProcesso(0);
-            for ( Processo pr : Main.memoria.processos )
-                if (pr.getId() < menorId.getId() )
-                    menorId = pr;
-            mandaPraCPU(menorId);
-            Main.memoria.removeProcesso(menorId.getId());
+    public Processo getPrimeiroProcesso () {
+        return Main.memoria.processos.get(0);
+    }    
+    
+    public Processo getMaiorPrioridade () {
+        Processo maiorPrioridade = Main.memoria.processos.get(0);
+        for ( Processo pr : Main.memoria.processos ) 
+            if ( pr.getPrioridade() > maiorPrioridade.getPrioridade() ) 
+                maiorPrioridade = pr;
+        return maiorPrioridade;
+    }
+    
+    public void fifo(){       
+        while ( Main.memoria.getQuantProcessos() > 0) {
+            Processo processo = getPrimeiroProcesso();
+            addProcessoCPU(processo);
         }
+
     }
     
     public void tarMaisCurta() {
-        
+        while (Main.memoria.processos.size() >= 1) {
+            Processo maisCurto = getMaisCurto();
+            addProcessoCPU(maisCurto);
+        }
     }
     
     public void proxMenosTmpRest() {
@@ -41,7 +52,10 @@ public class Escalonador {
     }
     
     public void prioridades() {
-        
+        while(Main.memoria.processos.size() >= 1){
+            Processo maior_prioridade = getMaiorPrioridade();
+            addProcessoCPU(maior_prioridade);
+        }
     }
     
     public void garantido() {
