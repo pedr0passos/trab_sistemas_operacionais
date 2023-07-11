@@ -122,9 +122,24 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace pref="185" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="nomeAlgoritmo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                          <Component id="botaoStart" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="botaoPause" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="botaoStop" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                          <Component id="aumentaVelocidade" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="barraProgresso" min="-2" pref="13" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="barraProgresso1" min="-2" pref="13" max="-2" attributes="0"/>
@@ -132,15 +147,13 @@
                           <Component id="barraProgresso2" min="-2" pref="13" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="barraProgresso3" min="-2" pref="13" max="-2" attributes="0"/>
-                      </Group>
-                      <Component id="botaoIniciar" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="botaoParar" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Component id="barraProgresso4" min="-2" pref="13" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
                           <Component id="barraProgresso5" min="-2" pref="13" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="barraProgresso6" min="-2" pref="13" max="-2" attributes="0"/>
@@ -154,16 +167,10 @@
                           <Component id="barraProgresso10" min="-2" pref="13" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="barraProgresso11" min="-2" pref="13" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="178" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="diminuiVelocidade" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="185" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="nomeAlgoritmo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="325" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -172,64 +179,139 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Component id="nomeAlgoritmo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jScrollPane2" max="32767" attributes="0"/>
-                      <Component id="barraProgresso" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso1" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso2" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso5" alignment="0" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso4" alignment="0" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso3" alignment="0" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso7" alignment="0" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso6" alignment="0" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso8" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso9" alignment="0" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso10" alignment="0" pref="232" max="32767" attributes="0"/>
-                      <Component id="barraProgresso11" alignment="0" pref="232" max="32767" attributes="0"/>
+                      <Component id="barraProgresso" max="32767" attributes="0"/>
+                      <Component id="barraProgresso1" max="32767" attributes="0"/>
+                      <Component id="barraProgresso2" max="32767" attributes="0"/>
+                      <Component id="barraProgresso5" alignment="0" max="32767" attributes="0"/>
+                      <Component id="barraProgresso4" alignment="0" max="32767" attributes="0"/>
+                      <Component id="barraProgresso3" alignment="0" max="32767" attributes="0"/>
+                      <Component id="barraProgresso7" alignment="0" max="32767" attributes="0"/>
+                      <Component id="barraProgresso6" alignment="0" max="32767" attributes="0"/>
+                      <Component id="barraProgresso8" max="32767" attributes="0"/>
+                      <Component id="barraProgresso9" alignment="0" max="32767" attributes="0"/>
+                      <Component id="barraProgresso10" alignment="0" max="32767" attributes="0"/>
+                      <Component id="barraProgresso11" alignment="0" min="-2" pref="232" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace pref="80" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="botaoIniciar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botaoParar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoStart" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoPause" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="aumentaVelocidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="diminuiVelocidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoStop" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="76" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JProgressBar" name="barraProgresso">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="botaoIniciar">
+        <Component class="javax.swing.JButton" name="botaoStart">
           <Properties>
             <Property name="text" type="java.lang.String" value="Start"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoIniciarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoStartActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso1">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso2">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso3">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso4">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso5">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso6">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso7">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso8">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso9">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso10">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JProgressBar" name="barraProgresso11">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="borderPainted" type="boolean" value="false"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="nomeAlgoritmo">
           <Properties>
@@ -239,26 +321,37 @@
             <Property name="text" type="java.lang.String" value="Algoritmo"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-          <AuxValues>
-            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-          </AuxValues>
-
-          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-          <SubComponents>
-            <Component class="javax.swing.JTextArea" name="info">
-              <Properties>
-                <Property name="columns" type="int" value="14"/>
-                <Property name="rows" type="int" value="5"/>
-                <Property name="tabSize" type="int" value="1"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Component class="javax.swing.JButton" name="botaoParar">
+        <Component class="javax.swing.JButton" name="botaoPause">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Pause"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoPauseActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="aumentaVelocidade">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="+"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="aumentaVelocidadeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="diminuiVelocidade">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="-"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="diminuiVelocidadeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="botaoStop">
           <Properties>
             <Property name="text" type="java.lang.String" value="Stop"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoStopActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

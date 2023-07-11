@@ -2,9 +2,9 @@ package Model;
 
 import Main.*;
 import Enum.*;
-import static Interface.JFramePrincipal.atualizaBarras;
+import Interface.*;
 
-public class CPU {
+public class CPU extends Thread{
     
     private int tempoSimulacao;
     private EstadoProcesso estado;
@@ -12,18 +12,22 @@ public class CPU {
     private int velocidade;
     
     public CPU () {
-        velocidade=1000;
+        velocidade=500;
         tempoSimulacao=0;
     }
     
-    public void executa (Processo processo) {        
+    
+    // thread responsavel por executar o processo em si 
+    public void executa (Processo processo, int tempoExecucao) {
         processoExecucao = processo;
         int i=0;
-        while ( processoExecucao.getTempoExecucao() > 0 ) {
+        while ( tempoExecucao > 0 ) {
             try {
                 Thread.sleep(velocidade);
             } catch (InterruptedException e) {}
             processoExecucao.setTempoExecucao(processoExecucao.getTempoExecucao()-1);
+            JFramePrincipal.atualizaBarras();
+            tempoExecucao--;
             processo = processoExecucao;            
             for( Processo pr : Main.memoria.processos )                {
                 System.out.print(Integer.toString(pr.getTempoExecucao()) + "\t");
@@ -33,14 +37,11 @@ public class CPU {
         Main.memoria.removeProcesso(processo);
     }    
     
-    public void setExecutando() {
-        estado = EstadoProcesso.EXECUTANDO;
+    public void aumentaVelocidade () {       
+        if (velocidade != 20)          
+            velocidade -= 20;
     }
-    
-    public void setEspera() {
-        estado = EstadoProcesso.ESPERA;                
+    public void diminuiVelocidade () {      
+        velocidade += 20;
     }
-    
-    
-    
 }

@@ -19,7 +19,7 @@ public class Memoria {
     public ArrayList<Processo> processos;
     
     public Memoria () {
-        this.tamMemoria = 10;
+        this.tamMemoria = 12;
         this.processos = new ArrayList(tamMemoria);
         new Thread() {
             @Override        
@@ -37,7 +37,7 @@ public class Memoria {
         int idProcesso=0;
         while (true) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10);
             } catch (InterruptedException e) {}
             if (!isFull())
                 processos.add(new Processo(idProcesso++, geraAleatorio(tamanhoMinimoProcesso, tamanhoMaximoProcesso), geraAleatorio(minPrioridade, maxPrioridade)));            
@@ -61,7 +61,7 @@ public class Memoria {
     }
     
     public boolean isFull () {
-        return processos.size() == 10;
+        return processos.size() == tamMemoria;
     }
     
     public int getTamMaxProc() {

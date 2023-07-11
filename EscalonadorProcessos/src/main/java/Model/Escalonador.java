@@ -1,11 +1,13 @@
 package Model;
 
 import Main.*;
+import Interface.*;
 
 public class Escalonador {
-
-    public void addProcessoCPU (Processo processo) {
-        Main.cpu.executa(processo);
+    
+    // Thread respondesavel por mandar o processo pra CPU executar
+    public void addProcessoCPU (Processo processo, int tempoExecucao) {
+        Main.cpu.executa(processo, tempoExecucao);
     }
 
     public Processo getMaisCurto () {
@@ -14,7 +16,6 @@ public class Escalonador {
             if (pr.getTempoExecucao() < menor.getTempoExecucao()) 
                 menor = pr;
         return menor;
-
     }
     
     public Processo getPrimeiroProcesso () {
@@ -32,14 +33,16 @@ public class Escalonador {
     public void fifo(){       
         while ( Main.memoria.getQuantProcessos() > 0) {
             Processo processo = getPrimeiroProcesso();
-            addProcessoCPU(processo);
+            addProcessoCPU(processo, processo.getTempoExecucao());
+            if ( JFramePrincipal.threadFlag ) break;                
         }
     }
     
     public void tarMaisCurta() {
         while (Main.memoria.processos.size() >= 1) {
             Processo maisCurto = getMaisCurto();
-            addProcessoCPU(maisCurto);
+            addProcessoCPU(maisCurto, maisCurto.getTempoExecucao());
+            if ( JFramePrincipal.threadFlag ) break;               
         }
     }
     
@@ -53,8 +56,10 @@ public class Escalonador {
     
     public void prioridades() {
         while(Main.memoria.processos.size() >= 1){
-            Processo maior_prioridade = getMaiorPrioridade();
-            addProcessoCPU(maior_prioridade);
+            Processo maiorPrioridade = getMaiorPrioridade();
+            addProcessoCPU(maiorPrioridade, maiorPrioridade.getTempoExecucao());
+            if (JFramePrincipal.threadFlag) break;
+
         }
     }
 
