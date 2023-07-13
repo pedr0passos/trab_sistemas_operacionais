@@ -3,21 +3,27 @@ package Interface;
 import Main.*;
 import java.util.ArrayList;
 import javax.swing.JProgressBar;
+import javax.swing.JLabel;
 
 public class JFramePrincipal extends javax.swing.JFrame {
     
     public static int escolhaAlgoritmo;
-    public static ArrayList<JProgressBar> barrasProcessos;
-    public static Thread threadJFrame;
     public static boolean threadFlag;
+    public static Thread threadJFrame;
+    public static ArrayList<JProgressBar> barrasProcessos;
+    public static ArrayList<JLabel> infoPrioridades;
+    public static ArrayList<JLabel> infoTamProcessos;
     
     public JFramePrincipal() {
         initComponents();
-        threadFlag=false;
-        barrasProcessos = new ArrayList(12);        
-        botaoPause.setEnabled(false);
         escolhaAlgoritmo=1;
-        nomeAlgoritmo.setText("Primeiro Chegar, Primeiro Servido");        
+        threadFlag=false;
+        botaoPause.setEnabled(false);
+        barrasProcessos = new ArrayList(Main.memoria.getTamMemoria());  
+        infoPrioridades = new ArrayList(Main.memoria.getTamMemoria());
+        infoTamProcessos= new ArrayList(Main.memoria.getTamMemoria());
+        nomeAlgoritmo.setText("Primeiro Chegar, Primeiro Servido");  
+        labelResultadoExe.setText("0");
         barrasProcessos.add(barraProgresso);
         barrasProcessos.add(barraProgresso1);
         barrasProcessos.add(barraProgresso2);      
@@ -29,16 +35,50 @@ public class JFramePrincipal extends javax.swing.JFrame {
         barrasProcessos.add(barraProgresso8);   
         barrasProcessos.add(barraProgresso9);
         barrasProcessos.add(barraProgresso10);
-        barrasProcessos.add(barraProgresso11);   
+        barrasProcessos.add(barraProgresso11); 
+        barrasProcessos.add(barraProgresso12);
+        barrasProcessos.add(barraProgresso13);
+        barrasProcessos.add(barraProgresso14);   
+        infoPrioridades.add(info16);
+        infoPrioridades.add(info17);
+        infoPrioridades.add(info18);
+        infoPrioridades.add(info19);
+        infoPrioridades.add(info20);
+        infoPrioridades.add(info21);
+        infoPrioridades.add(info22);
+        infoPrioridades.add(info23);
+        infoPrioridades.add(info24);
+        infoPrioridades.add(info25);
+        infoPrioridades.add(info26);
+        infoPrioridades.add(info27);
+        infoPrioridades.add(info28);
+        infoPrioridades.add(info29);
+        infoPrioridades.add(info30);
+        infoTamProcessos.add(info1);
+        infoTamProcessos.add(info2);
+        infoTamProcessos.add(info3);
+        infoTamProcessos.add(info4); 
+        infoTamProcessos.add(info5);
+        infoTamProcessos.add(info6);
+        infoTamProcessos.add(info7);
+        infoTamProcessos.add(info8);    
+        infoTamProcessos.add(info9);
+        infoTamProcessos.add(info10);
+        infoTamProcessos.add(info11);
+        infoTamProcessos.add(info12); 
+        infoTamProcessos.add(info13);
+        infoTamProcessos.add(info14);
+        infoTamProcessos.add(info15);      
         zeraBarras();
+        zeraPrioridades();
+        zeraTamProcessos();
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelPrincipal = new javax.swing.JPanel();
         barraProgresso = new javax.swing.JProgressBar();
-        botaoStart = new javax.swing.JButton();
         barraProgresso1 = new javax.swing.JProgressBar();
         barraProgresso2 = new javax.swing.JProgressBar();
         barraProgresso3 = new javax.swing.JProgressBar();
@@ -50,12 +90,51 @@ public class JFramePrincipal extends javax.swing.JFrame {
         barraProgresso9 = new javax.swing.JProgressBar();
         barraProgresso10 = new javax.swing.JProgressBar();
         barraProgresso11 = new javax.swing.JProgressBar();
+        barraProgresso12 = new javax.swing.JProgressBar();
+        barraProgresso13 = new javax.swing.JProgressBar();
+        barraProgresso14 = new javax.swing.JProgressBar();
+        info1 = new javax.swing.JLabel();
+        info2 = new javax.swing.JLabel();
+        info3 = new javax.swing.JLabel();
+        info4 = new javax.swing.JLabel();
+        info5 = new javax.swing.JLabel();
+        info6 = new javax.swing.JLabel();
+        info7 = new javax.swing.JLabel();
+        info8 = new javax.swing.JLabel();
+        info9 = new javax.swing.JLabel();
+        info10 = new javax.swing.JLabel();
+        info11 = new javax.swing.JLabel();
+        info12 = new javax.swing.JLabel();
+        info13 = new javax.swing.JLabel();
+        info14 = new javax.swing.JLabel();
+        info15 = new javax.swing.JLabel();
+        info16 = new javax.swing.JLabel();
+        info17 = new javax.swing.JLabel();
+        info18 = new javax.swing.JLabel();
+        info19 = new javax.swing.JLabel();
+        info20 = new javax.swing.JLabel();
+        info21 = new javax.swing.JLabel();
+        info22 = new javax.swing.JLabel();
+        info23 = new javax.swing.JLabel();
+        info24 = new javax.swing.JLabel();
+        info25 = new javax.swing.JLabel();
+        info26 = new javax.swing.JLabel();
+        info27 = new javax.swing.JLabel();
+        info28 = new javax.swing.JLabel();
+        info29 = new javax.swing.JLabel();
+        info30 = new javax.swing.JLabel();
+        panelTitulo = new javax.swing.JPanel();
         nomeAlgoritmo = new javax.swing.JLabel();
+        panelControle = new javax.swing.JPanel();
+        botaoStart = new javax.swing.JButton();
         botaoPause = new javax.swing.JButton();
-        aumentaVelocidade = new javax.swing.JButton();
-        diminuiVelocidade = new javax.swing.JButton();
         botaoStop = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        diminuiVelocidade = new javax.swing.JButton();
+        labelExecutados = new javax.swing.JLabel();
+        labelResultadoExe = new javax.swing.JLabel();
+        aumentaVelocidade = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        barraMenu = new javax.swing.JMenuBar();
         Algoritmos = new javax.swing.JMenu();
         FIFO = new javax.swing.JMenuItem();
         tarefaMaisCurtaPrimeiro = new javax.swing.JMenuItem();
@@ -65,19 +144,12 @@ public class JFramePrincipal extends javax.swing.JFrame {
         escGarantido = new javax.swing.JMenuItem();
         escLoteria = new javax.swing.JMenuItem();
         escFracaoJusta = new javax.swing.JMenuItem();
-        Editar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Escalonador de Processos");
 
         barraProgresso.setBorder(null);
         barraProgresso.setBorderPainted(false);
-
-        botaoStart.setText("Start");
-        botaoStart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoStartActionPerformed(evt);
-            }
-        });
 
         barraProgresso1.setBorder(null);
         barraProgresso1.setBorderPainted(false);
@@ -113,27 +185,265 @@ public class JFramePrincipal extends javax.swing.JFrame {
         barraProgresso11.setBorder(null);
         barraProgresso11.setBorderPainted(false);
 
+        barraProgresso12.setBorder(null);
+        barraProgresso12.setBorderPainted(false);
+
+        barraProgresso13.setBorder(null);
+        barraProgresso13.setBorderPainted(false);
+
+        barraProgresso14.setBorder(null);
+        barraProgresso14.setBorderPainted(false);
+
+        info1.setText("x");
+
+        info2.setText("x");
+
+        info3.setText("x");
+
+        info4.setText("x");
+
+        info5.setText("x");
+
+        info6.setText("x");
+
+        info7.setText("x");
+
+        info8.setText("x");
+
+        info9.setText("x");
+
+        info10.setText("x");
+
+        info11.setText("x");
+
+        info12.setText("x");
+
+        info13.setText("x");
+
+        info14.setText("x");
+
+        info15.setText("x");
+
+        info16.setText("x");
+
+        info17.setText("x");
+
+        info18.setText("x");
+
+        info19.setText("x");
+
+        info20.setText("x");
+
+        info21.setText("x");
+
+        info22.setText("x");
+
+        info23.setText("x");
+
+        info24.setText("x");
+
+        info25.setText("x");
+
+        info26.setText("x");
+
+        info27.setText("x");
+
+        info28.setText("x");
+
+        info29.setText("x");
+
+        info30.setText("x");
+
+        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info16)
+                            .addComponent(info1))
+                        .addGap(20, 20, 20)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(info17)
+                            .addComponent(info2))
+                        .addGap(20, 20, 20)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(info18)
+                            .addComponent(info3))
+                        .addGap(23, 23, 23)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(info19)
+                            .addComponent(info4))
+                        .addGap(23, 23, 23)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info20)
+                            .addComponent(info5))
+                        .addGap(23, 23, 23)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info21)
+                            .addComponent(info6))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(info22)
+                            .addComponent(info7))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(info23)
+                            .addComponent(info8))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info24)
+                            .addComponent(info9))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info25)
+                            .addComponent(info10))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(info26)
+                            .addComponent(info11))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(info27)
+                            .addComponent(info12))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info28)
+                            .addComponent(info13))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info29)
+                            .addComponent(info14))
+                        .addGap(22, 22, 22)
+                        .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(info30)
+                            .addComponent(info15)))
+                    .addGroup(panelPrincipalLayout.createSequentialGroup()
+                        .addComponent(barraProgresso, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(barraProgresso4, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(barraProgresso8, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso9, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso10, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso12, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso13, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(barraProgresso14, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(barraProgresso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(barraProgresso12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso14, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(info1)
+                    .addComponent(info2)
+                    .addComponent(info3)
+                    .addComponent(info4)
+                    .addComponent(info5)
+                    .addComponent(info6)
+                    .addComponent(info7)
+                    .addComponent(info8)
+                    .addComponent(info9)
+                    .addComponent(info10)
+                    .addComponent(info11)
+                    .addComponent(info12)
+                    .addComponent(info13)
+                    .addComponent(info14)
+                    .addComponent(info15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(info16)
+                    .addComponent(info17)
+                    .addComponent(info18)
+                    .addComponent(info19)
+                    .addComponent(info20)
+                    .addComponent(info21)
+                    .addComponent(info22)
+                    .addComponent(info23)
+                    .addComponent(info24)
+                    .addComponent(info25)
+                    .addComponent(info26)
+                    .addComponent(info27)
+                    .addComponent(info28)
+                    .addComponent(info29)
+                    .addComponent(info30))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
         nomeAlgoritmo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         nomeAlgoritmo.setText("Algoritmo");
+
+        javax.swing.GroupLayout panelTituloLayout = new javax.swing.GroupLayout(panelTitulo);
+        panelTitulo.setLayout(panelTituloLayout);
+        panelTituloLayout.setHorizontalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTituloLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nomeAlgoritmo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelTituloLayout.setVerticalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTituloLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(nomeAlgoritmo)
+                .addContainerGap())
+        );
+
+        botaoStart.setText("Start");
+        botaoStart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoStartActionPerformed(evt);
+            }
+        });
 
         botaoPause.setText("Pause");
         botaoPause.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPauseActionPerformed(evt);
-            }
-        });
-
-        aumentaVelocidade.setText("+");
-        aumentaVelocidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aumentaVelocidadeActionPerformed(evt);
-            }
-        });
-
-        diminuiVelocidade.setText("-");
-        diminuiVelocidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                diminuiVelocidadeActionPerformed(evt);
             }
         });
 
@@ -144,87 +454,82 @@ public class JFramePrincipal extends javax.swing.JFrame {
             }
         });
 
+        diminuiVelocidade.setText("-");
+        diminuiVelocidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                diminuiVelocidadeActionPerformed(evt);
+            }
+        });
+
+        labelExecutados.setText("Executados:");
+
+        labelResultadoExe.setText("xxx");
+
+        aumentaVelocidade.setText("+");
+        aumentaVelocidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aumentaVelocidadeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelControleLayout = new javax.swing.GroupLayout(panelControle);
+        panelControle.setLayout(panelControleLayout);
+        panelControleLayout.setHorizontalGroup(
+            panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelControleLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoStart)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botaoPause)
+                .addGap(18, 18, 18)
+                .addComponent(botaoStop)
+                .addGap(55, 55, 55)
+                .addComponent(aumentaVelocidade)
+                .addGap(18, 18, 18)
+                .addComponent(diminuiVelocidade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelExecutados)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelResultadoExe)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelControleLayout.setVerticalGroup(
+            panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelControleLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelControleLayout.createSequentialGroup()
+                        .addGap(0, 6, Short.MAX_VALUE)
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(aumentaVelocidade)
+                            .addComponent(diminuiVelocidade)))
+                    .addGroup(panelControleLayout.createSequentialGroup()
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelResultadoExe, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(labelExecutados, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(botaoStart)
+                            .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(botaoPause)
+                                .addComponent(botaoStop)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(nomeAlgoritmo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(botaoStart)
-                        .addGap(12, 12, 12)
-                        .addComponent(botaoPause)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(botaoStop)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addComponent(aumentaVelocidade))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(barraProgresso, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso2, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(barraProgresso4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(barraProgresso5, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso6, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso7, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(barraProgresso8, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso9, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso10, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(diminuiVelocidade))
-                .addContainerGap(325, Short.MAX_VALUE))
+            .addGap(0, 803, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(nomeAlgoritmo)
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(barraProgresso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoStart)
-                    .addComponent(botaoPause)
-                    .addComponent(aumentaVelocidade)
-                    .addComponent(diminuiVelocidade)
-                    .addComponent(botaoStop))
-                .addGap(24, 24, 24))
+            .addGap(0, 44, Short.MAX_VALUE)
         );
 
         Algoritmos.setText("Algoritmos");
 
-        FIFO.setText("FIFO");
+        FIFO.setText("First Come, First Served");
         FIFO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FIFOActionPerformed(evt);
@@ -232,7 +537,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         Algoritmos.add(FIFO);
 
-        tarefaMaisCurtaPrimeiro.setText("Mais Curta Primeiro");
+        tarefaMaisCurtaPrimeiro.setText("Shortest Job First ");
         tarefaMaisCurtaPrimeiro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tarefaMaisCurtaPrimeiroActionPerformed(evt);
@@ -240,7 +545,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         Algoritmos.add(tarefaMaisCurtaPrimeiro);
 
-        proxMenosTempo.setText("Próximo Menos Tempo Restante");
+        proxMenosTempo.setText("Shortest Remaining Time Next");
         proxMenosTempo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 proxMenosTempoActionPerformed(evt);
@@ -248,7 +553,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         Algoritmos.add(proxMenosTempo);
 
-        escChaveamentoCircular.setText("Chaveamento Circular");
+        escChaveamentoCircular.setText("Round Robin");
         escChaveamentoCircular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 escChaveamentoCircularActionPerformed(evt);
@@ -288,22 +593,33 @@ public class JFramePrincipal extends javax.swing.JFrame {
         });
         Algoritmos.add(escFracaoJusta);
 
-        jMenuBar1.add(Algoritmos);
+        barraMenu.add(Algoritmos);
 
-        Editar.setText("Editar");
-        jMenuBar1.add(Editar);
-
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(barraMenu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelControle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(panelTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelControle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -314,12 +630,13 @@ public class JFramePrincipal extends javax.swing.JFrame {
         botaoStart.setEnabled(false);
         botaoPause.setEnabled(true); 
         threadFlag = false;
-        threadJFrame = new Thread() {
+        threadJFrame = new Thread(){
             @Override 
             public void run () {            
                 switch (escolhaAlgoritmo) {
                     case 1:
                         Main.escalonador.fifo();
+                        
                         break;
                     case 2:
                         Main.escalonador.tarMaisCurta();
@@ -391,6 +708,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
         botaoStart.setEnabled(true);
         botaoPause.setEnabled(false);
         zeraBarras();
+        zeraPrioridades();
+        zeraTamProcessos();
     }//GEN-LAST:event_botaoStopActionPerformed
 
     public static void atualizaBarras () {
@@ -402,9 +721,38 @@ public class JFramePrincipal extends javax.swing.JFrame {
         }
     }
     
+    public static void atualizaPrioridades() {
+        for (int i=0; i < Main.memoria.processos.size(); ++i) {
+            infoPrioridades.get(i).setText(Integer.toString(Main.memoria.processos.get(i).getPrioridade()));
+            infoPrioridades.get(i).setVisible(true);
+        }
+    }
+    
+    public static void atualizaTamProcessos() {
+        for (int i=0; i < Main.memoria.processos.size(); ++i) {
+            infoTamProcessos.get(i).setText(Integer.toString(Main.memoria.processos.get(i).getTempoExecucao()));
+            infoTamProcessos.get(i).setVisible(true);
+        }
+    }
+    
     public static void zeraBarras() {
         for (JProgressBar jBar : barrasProcessos )
             jBar.setVisible(false);
+    }
+    
+    public static void zeraPrioridades() {
+        for ( JLabel jLabel : infoPrioridades) {
+            jLabel.setVisible(false);          
+        }
+    }
+    public static void zeraTamProcessos() {
+        for ( JLabel jLabel : infoTamProcessos ) {
+            jLabel.setVisible(false);         
+        }
+    }
+    
+    public static void atualizaProcessosProcessados(String resultado) {
+        labelResultadoExe.setText(resultado);
     }
     
     public static void main(String args[]) {
@@ -417,13 +765,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Algoritmos;
-    private javax.swing.JMenu Editar;
     private javax.swing.JMenuItem FIFO;
     private javax.swing.JButton aumentaVelocidade;
+    private javax.swing.JMenuBar barraMenu;
     private javax.swing.JProgressBar barraProgresso;
     private javax.swing.JProgressBar barraProgresso1;
     private javax.swing.JProgressBar barraProgresso10;
     private javax.swing.JProgressBar barraProgresso11;
+    private javax.swing.JProgressBar barraProgresso12;
+    private javax.swing.JProgressBar barraProgresso13;
+    private javax.swing.JProgressBar barraProgresso14;
     private javax.swing.JProgressBar barraProgresso2;
     private javax.swing.JProgressBar barraProgresso3;
     private javax.swing.JProgressBar barraProgresso4;
@@ -441,9 +792,43 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem escGarantido;
     private javax.swing.JMenuItem escLoteria;
     private javax.swing.JMenuItem escPrioridades;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel info1;
+    private javax.swing.JLabel info10;
+    private javax.swing.JLabel info11;
+    private javax.swing.JLabel info12;
+    private javax.swing.JLabel info13;
+    private javax.swing.JLabel info14;
+    private javax.swing.JLabel info15;
+    private javax.swing.JLabel info16;
+    private javax.swing.JLabel info17;
+    private javax.swing.JLabel info18;
+    private javax.swing.JLabel info19;
+    private javax.swing.JLabel info2;
+    private javax.swing.JLabel info20;
+    private javax.swing.JLabel info21;
+    private javax.swing.JLabel info22;
+    private javax.swing.JLabel info23;
+    private javax.swing.JLabel info24;
+    private javax.swing.JLabel info25;
+    private javax.swing.JLabel info26;
+    private javax.swing.JLabel info27;
+    private javax.swing.JLabel info28;
+    private javax.swing.JLabel info29;
+    private javax.swing.JLabel info3;
+    private javax.swing.JLabel info30;
+    private javax.swing.JLabel info4;
+    private javax.swing.JLabel info5;
+    private javax.swing.JLabel info6;
+    private javax.swing.JLabel info7;
+    private javax.swing.JLabel info8;
+    private javax.swing.JLabel info9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel labelExecutados;
+    public static javax.swing.JLabel labelResultadoExe;
     private javax.swing.JLabel nomeAlgoritmo;
+    private javax.swing.JPanel panelControle;
+    private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JPanel panelTitulo;
     private javax.swing.JMenuItem proxMenosTempo;
     private javax.swing.JMenuItem tarefaMaisCurtaPrimeiro;
     // End of variables declaration//GEN-END:variables

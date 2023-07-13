@@ -2,24 +2,23 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Random;
+import Interface.*;
 
 public class Memoria {
-    private final int tamMemoria;
-// tamanho da memoria e a quantidade de processos que existem nela
-        private int quantProcessosProcessados;
     
-    // tamanho minimo e máximo dos processos
+    private final int tamMemoria;
+    private int quantProcessosProcessados;
+    
     private final int tamanhoMinimoProcesso=1;
     private final int tamanhoMaximoProcesso=10;
     
-    // intervalo de prioridade dos processos
     private final int minPrioridade=1;
-    private final int maxPrioridade=4;
-    // lista de processos na memória prontos para irem para a CPU
+    private final int maxPrioridade=9;
+
     public ArrayList<Processo> processos;
     
     public Memoria () {
-        this.tamMemoria = 12;
+        this.tamMemoria = 15;
         this.processos = new ArrayList(tamMemoria);
         new Thread() {
             @Override        
@@ -27,10 +26,6 @@ public class Memoria {
                 geraProcessos();
             }
         }.start();
-    }
-    
-    public int getQuantProcessos() {
-        return processos.size();
     }
     
     public void geraProcessos() {
@@ -56,8 +51,9 @@ public class Memoria {
     }
     
     public void removeProcesso(Processo processo){
-        processos.remove(processo);
         quantProcessosProcessados++;
+        JFramePrincipal.atualizaProcessosProcessados(Integer.toString(getProcessados()));
+        processos.remove(processo);
     }
     
     public boolean isFull () {
@@ -66,5 +62,17 @@ public class Memoria {
     
     public int getTamMaxProc() {
         return tamanhoMaximoProcesso;
+    }
+    
+    public int getQuantProcessos() {
+        return processos.size();
+    }
+    
+    public int getTamMemoria() {
+        return tamMemoria;
+    }
+    
+    public int getProcessados() {
+        return quantProcessosProcessados;
     }
 }

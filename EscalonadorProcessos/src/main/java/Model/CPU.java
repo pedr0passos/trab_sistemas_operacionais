@@ -15,33 +15,35 @@ public class CPU extends Thread{
         velocidade=500;
         tempoSimulacao=0;
     }
-    
-    
-    // thread responsavel por executar o processo em si 
-    public void executa (Processo processo, int tempoExecucao) {
+     
+    public void executa (Processo processo, int tempoExecucao, boolean prioridade) {
         processoExecucao = processo;
         int i=0;
         while ( tempoExecucao > 0 ) {
+            if (JFramePrincipal.threadFlag) break;
             try {
                 Thread.sleep(velocidade);
             } catch (InterruptedException e) {}
-            processoExecucao.setTempoExecucao(processoExecucao.getTempoExecucao()-1);
             JFramePrincipal.atualizaBarras();
+            JFramePrincipal.atualizaTamProcessos();
+            if ( prioridade ) JFramePrincipal.atualizaPrioridades();            
+            processoExecucao.setTempoExecucao(processoExecucao.getTempoExecucao()-1);
             tempoExecucao--;
             processo = processoExecucao;            
-            for( Processo pr : Main.memoria.processos )                {
-                System.out.print(Integer.toString(pr.getTempoExecucao()) + "\t");
-            }
-            System.out.print("("+Main.memoria.getQuantProcessos()+")" + "\n");
         }
         Main.memoria.removeProcesso(processo);
     }    
     
     public void aumentaVelocidade () {       
-        if (velocidade != 20)          
-            velocidade -= 20;
+        if (velocidade != 50 && velocidade > 50) 
+            velocidade -= 50;
+        else if (velocidade <= 50 && velocidade != 20)
+            velocidade -= 10;
+        System.out.print(velocidade + "\n");
     }
+    
     public void diminuiVelocidade () {      
-        velocidade += 20;
+        velocidade += 50;
     }
+   
 }
