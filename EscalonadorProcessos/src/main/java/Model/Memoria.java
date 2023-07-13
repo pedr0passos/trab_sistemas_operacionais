@@ -3,6 +3,8 @@ package Model;
 import java.util.ArrayList;
 import java.util.Random;
 import Interface.*;
+import Interface.JFramePrincipal;
+import Main.Main;
 
 public class Memoria {
     
@@ -34,8 +36,13 @@ public class Memoria {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {}
-            if (!isFull())
-                processos.add(new Processo(idProcesso++, geraAleatorio(tamanhoMinimoProcesso, tamanhoMaximoProcesso), geraAleatorio(minPrioridade, maxPrioridade)));            
+            if (!isFull()) {
+                processos.add(new Processo( idProcesso++, 
+                                geraAleatorio(tamanhoMinimoProcesso, tamanhoMaximoProcesso), 
+                                  geraAleatorio(minPrioridade, maxPrioridade),
+                                geraAleatorio(1, JFramePrincipal.maximoUsuarios)));
+            }
+                            
         }
     }
     
@@ -54,6 +61,7 @@ public class Memoria {
         quantProcessosProcessados++;
         JFramePrincipal.atualizaProcessosProcessados(Integer.toString(getProcessados()));
         processos.remove(processo);
+        Main.calculadorTempo.adicionarProcessoFinalizado();
     }
     
     public boolean isFull () {

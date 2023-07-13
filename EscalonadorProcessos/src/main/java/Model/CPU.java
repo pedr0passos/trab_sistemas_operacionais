@@ -10,8 +10,10 @@ public class CPU extends Thread{
     private EstadoProcesso estado;
     private Processo processoExecucao;
     private int velocidade;
+    private int QUANTUM;
     
     public CPU () {
+        this.QUANTUM = 6;
         velocidade=500;
         tempoSimulacao=0;
     }
@@ -24,15 +26,18 @@ public class CPU extends Thread{
             try {
                 Thread.sleep(velocidade);
             } catch (InterruptedException e) {}
-            JFramePrincipal.atualizaBarras();
-            JFramePrincipal.atualizaTamProcessos();
+                JFramePrincipal.atualizaBarras();
+                JFramePrincipal.atualizaTamProcessos();
             if ( prioridade ) JFramePrincipal.atualizaPrioridades();            
-            processoExecucao.setTempoExecucao(processoExecucao.getTempoExecucao()-1);
+                processoExecucao.setTempoExecucao(processoExecucao.getTempoExecucao()-1);
+                
             tempoExecucao--;
             processo = processoExecucao;            
         }
-        Main.memoria.removeProcesso(processo);
-    }    
+        
+        if ( processo.getTempoExecucao() <= 0)
+            Main.memoria.removeProcesso(processo);
+        }    
     
     public void aumentaVelocidade () {       
         if (velocidade != 50 && velocidade > 50) 
@@ -44,6 +49,11 @@ public class CPU extends Thread{
     
     public void diminuiVelocidade () {      
         velocidade += 50;
+    }
+    
+    public int getQuantum()
+    {
+        return this.QUANTUM;
     }
    
 }

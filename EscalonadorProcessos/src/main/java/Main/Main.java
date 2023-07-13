@@ -2,6 +2,7 @@ package Main;
 
 import Interface.*;
 import Model.*;
+import tempo.CalculadorTempo;
 
 public class Main {
     
@@ -9,9 +10,10 @@ public class Main {
     public static CPU cpu;
     public static Escalonador escalonador;
     public static boolean start;
+    public static CalculadorTempo calculadorTempo;
     
     public static void main(String[] args) {
-
+        calculadorTempo = new CalculadorTempo();
         memoria = new Memoria();
         cpu = new CPU();
         escalonador = new Escalonador();
