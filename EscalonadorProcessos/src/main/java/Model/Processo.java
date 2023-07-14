@@ -4,16 +4,22 @@ public class Processo {
     
     private int id;
     private int tempoExecucao;
-    private int prioridade;
+    private double prioridade;
     private int ticket;
     private int idUsuarioDono;
+    private long tempoUnixDesdeCriacaoMilissegundos;
     
+    public Processo () {
+        super();
+    }
     
-    public Processo (int id, int tempoExecucao, int prioridade, int idUsuarioDono){
+    public Processo (int id, int tempoExecucao, double prioridade, int idUsuarioDono, int ticket){
         this.id=id;
         this.tempoExecucao=tempoExecucao;
         this.prioridade=prioridade;
         this.idUsuarioDono = idUsuarioDono;
+        this.tempoUnixDesdeCriacaoMilissegundos = System.currentTimeMillis();
+        this.ticket = ticket;
     }
     
     public int getId() {
@@ -24,7 +30,7 @@ public class Processo {
         return tempoExecucao;
     }
     
-    public int getPrioridade() {
+    public double getPrioridade() {
         return prioridade;
     }
     
@@ -41,7 +47,7 @@ public class Processo {
         this.tempoExecucao = tempoExecucao;
     }
     
-    public void setPrioridade(int prioridade) {
+    public void setPrioridade(double prioridade) {
         this.prioridade = prioridade;
     }
     
@@ -52,5 +58,10 @@ public class Processo {
     public int getIdUsuarioDono()
     {
         return this.idUsuarioDono;
+    }
+    
+    public long getTempoUnixDesdeCriacaoMilissegundos()
+    {
+        return tempoUnixDesdeCriacaoMilissegundos;
     }
 }
