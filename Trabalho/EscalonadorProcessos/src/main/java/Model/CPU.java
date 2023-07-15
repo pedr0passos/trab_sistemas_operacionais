@@ -27,22 +27,15 @@ public class CPU extends Thread{
             
             JFramePrincipal.atualizaBarras();
             JFramePrincipal.atualizaTamProcessos();            
-            JFramePrincipal.labelTamanho.setVisible(true);
             
-            if ( prioridade ) {
-                JFramePrincipal.labelPrioridade.setVisible(true);
-                JFramePrincipal.atualizaPrioridades();                  
-            }
-                
+            if ( prioridade ) 
+                JFramePrincipal.atualizaPrioridades();       
             if ( ticket ) {
-                JFramePrincipal.labelPrioridade.setVisible(false); 
-                JFramePrincipal.labelTicket.setVisible(true);
-                JFramePrincipal.labelTicket2.setVisible(true);
                 JFramePrincipal.atualizaTicket();
                 JFramePrincipal.atualizaTicketSorteado();            
             }
             processoExecucao.setTempoExecucao(processoExecucao.getTempoExecucao()-1);
-            
+                
             tempoExecucao--;
             processo = processoExecucao;            
         }

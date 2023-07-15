@@ -57,10 +57,6 @@ public class Memoria {
         maxPrioridade = prioridadeMaxima;
     }
     
-    public void zeraProcessados () {
-        quantProcessosProcessados=0;
-    }
-    
     public void geraProcessos() {
         int idProcesso=0;
         while (true) {

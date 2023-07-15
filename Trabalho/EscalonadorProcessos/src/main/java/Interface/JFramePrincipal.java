@@ -9,7 +9,6 @@ import tempo.CalculadorTempo;
 
 public class JFramePrincipal extends javax.swing.JFrame {
     
-    public static int maximoUsuarios=4;
     public static int escolhaAlgoritmo;
     public static boolean threadFlag;
     
@@ -21,31 +20,24 @@ public class JFramePrincipal extends javax.swing.JFrame {
     public static ArrayList<JProgressBar> barrasProcessos;
     public static ArrayList<JLabel> infoPrioridades;
     public static ArrayList<JLabel> infoTamProcessos;
+    public static int maximoUsuarios = 4;
     public static ReentrantLock mutex = new ReentrantLock();
-            
+    
+    
+    
     public JFramePrincipal() {
         initComponents();
-        
         escolhaAlgoritmo=1;
         threadFlag=false;
         janelaAlteraTamProcessos=false; 
         janelaAlteraPrioProcessos = false;
-        nomeAlgoritmo.setText("First Come, First Served");  
-        labelResultadoExe.setText("0");
-        
         botaoPause.setEnabled(false);
-        
-        resulTicket.setVisible(false);
-        labelTamanho.setVisible(false);
-        labelTicket.setVisible(false);
-        labelTicket2.setVisible(false);
-        labelPrioridade.setVisible(false);
-        
-        // listas de controle das barras e labels de informações
+        resulTicket.setVisible(false);        
         barrasProcessos = new ArrayList(Main.memoria.getTamMemoria());  
         infoPrioridades = new ArrayList(Main.memoria.getTamMemoria());
         infoTamProcessos= new ArrayList(Main.memoria.getTamMemoria());
-        
+        nomeAlgoritmo.setText("First Come, First Served");  
+        labelResultadoExe.setText("0");
         barrasProcessos.add(barraProgresso);
         barrasProcessos.add(barraProgresso1);
         barrasProcessos.add(barraProgresso2);      
@@ -146,9 +138,9 @@ public class JFramePrincipal extends javax.swing.JFrame {
         botaoPause = new javax.swing.JButton();
         botaoStop = new javax.swing.JButton();
         diminuiVelocidade = new javax.swing.JButton();
-        aumentaVelocidade = new javax.swing.JButton();
         labelExecutados = new javax.swing.JLabel();
         labelResultadoExe = new javax.swing.JLabel();
+        aumentaVelocidade = new javax.swing.JButton();
         labelTempoVazao = new javax.swing.JLabel();
         labelResulVazao = new javax.swing.JLabel();
         labelTempFila = new javax.swing.JLabel();
@@ -188,9 +180,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
         info28 = new javax.swing.JLabel();
         info29 = new javax.swing.JLabel();
         info30 = new javax.swing.JLabel();
-        labelPrioridade = new javax.swing.JLabel();
-        labelTamanho = new javax.swing.JLabel();
-        labelTicket2 = new javax.swing.JLabel();
         barraMenu = new javax.swing.JMenuBar();
         Algoritmos = new javax.swing.JMenu();
         FIFO = new javax.swing.JMenuItem();
@@ -207,90 +196,135 @@ public class JFramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Escalonador de Processos");
-        setAutoRequestFocus(false);
-        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(900, 550));
-        setMinimumSize(new java.awt.Dimension(900, 550));
-        setPreferredSize(new java.awt.Dimension(900, 550));
         setResizable(false);
-        setSize(new java.awt.Dimension(900, 550));
-
-        panelPrincipal.setPreferredSize(new java.awt.Dimension(900, 260));
-        panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         barraProgresso.setBorder(null);
         barraProgresso.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 15, 20, 232));
 
         barraProgresso1.setBorder(null);
         barraProgresso1.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 15, 20, 232));
 
         barraProgresso2.setBorder(null);
         barraProgresso2.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 15, 20, 232));
 
         barraProgresso3.setToolTipText("");
         barraProgresso3.setBorder(null);
         barraProgresso3.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 15, 20, 232));
 
         barraProgresso4.setBorder(null);
         barraProgresso4.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 15, 20, 232));
 
         barraProgresso5.setBorder(null);
         barraProgresso5.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 15, 20, 232));
 
         barraProgresso6.setBorder(null);
         barraProgresso6.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 15, 20, 232));
 
         barraProgresso7.setBorder(null);
         barraProgresso7.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 15, 20, 232));
 
         barraProgresso8.setBorder(null);
         barraProgresso8.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 15, 20, 232));
 
         barraProgresso9.setBorder(null);
         barraProgresso9.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 15, 20, 232));
 
         barraProgresso10.setBorder(null);
         barraProgresso10.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 15, 20, 232));
 
         barraProgresso11.setBorder(null);
         barraProgresso11.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 15, 20, 232));
 
         barraProgresso12.setBorder(null);
         barraProgresso12.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso12, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 15, 20, 232));
 
         barraProgresso13.setBorder(null);
         barraProgresso13.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso13, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 15, 20, 232));
 
         barraProgresso14.setBorder(null);
         barraProgresso14.setBorderPainted(false);
-        panelPrincipal.add(barraProgresso14, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 15, 20, 232));
 
-        panelTitulo.setPreferredSize(new java.awt.Dimension(900, 50));
-        panelTitulo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
+        panelPrincipal.setLayout(panelPrincipalLayout);
+        panelPrincipalLayout.setHorizontalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(barraProgresso, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(barraProgresso14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelPrincipalLayout.setVerticalGroup(
+            panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(barraProgresso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso11, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(barraProgresso12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(barraProgresso14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
+        );
 
         nomeAlgoritmo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        nomeAlgoritmo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nomeAlgoritmo.setText("Algoritmo");
-        nomeAlgoritmo.setToolTipText("");
-        nomeAlgoritmo.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        panelTitulo.add(nomeAlgoritmo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 900, -1));
 
-        panelControle.setPreferredSize(new java.awt.Dimension(900, 110));
-        panelControle.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        javax.swing.GroupLayout panelTituloLayout = new javax.swing.GroupLayout(panelTitulo);
+        panelTitulo.setLayout(panelTituloLayout);
+        panelTituloLayout.setHorizontalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTituloLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(nomeAlgoritmo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelTituloLayout.setVerticalGroup(
+            panelTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTituloLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(nomeAlgoritmo)
+                .addContainerGap())
+        );
 
         botaoStart.setText("Start");
         botaoStart.addActionListener(new java.awt.event.ActionListener() {
@@ -298,7 +332,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 botaoStartActionPerformed(evt);
             }
         });
-        panelControle.add(botaoStart, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         botaoPause.setText("Pause");
         botaoPause.addActionListener(new java.awt.event.ActionListener() {
@@ -306,7 +339,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 botaoPauseActionPerformed(evt);
             }
         });
-        panelControle.add(botaoPause, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         botaoStop.setText("Stop");
         botaoStop.addActionListener(new java.awt.event.ActionListener() {
@@ -314,7 +346,6 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 botaoStopActionPerformed(evt);
             }
         });
-        panelControle.add(botaoStop, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
 
         diminuiVelocidade.setText("-");
         diminuiVelocidade.addActionListener(new java.awt.event.ActionListener() {
@@ -322,7 +353,10 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 diminuiVelocidadeActionPerformed(evt);
             }
         });
-        panelControle.add(diminuiVelocidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, -1, -1));
+
+        labelExecutados.setText("Executados:");
+
+        labelResultadoExe.setText("xxx");
 
         aumentaVelocidade.setText("+");
         aumentaVelocidade.addActionListener(new java.awt.event.ActionListener() {
@@ -330,207 +364,292 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 aumentaVelocidadeActionPerformed(evt);
             }
         });
-        panelControle.add(aumentaVelocidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 70, -1, -1));
 
-        labelExecutados.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        labelExecutados.setText("Executados:");
-        panelControle.add(labelExecutados, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 80, -1));
-
-        labelResultadoExe.setText("xxx");
-        panelControle.add(labelResultadoExe, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 80, 60, -1));
-
-        labelTempoVazao.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelTempoVazao.setText("Temp/Vazão:");
-        panelControle.add(labelTempoVazao, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 80, -1));
 
         labelResulVazao.setText("xxx");
-        panelControle.add(labelResulVazao, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 60, -1));
 
-        labelTempFila.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelTempFila.setText("Temp/Fila:");
-        panelControle.add(labelTempFila, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 80, -1));
 
         labelResulTempoMedioFila.setText("xxx");
-        panelControle.add(labelResulTempoMedioFila, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 40, 60, -1));
 
-        labelCPU.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         labelCPU.setText("CPU:");
-        panelControle.add(labelCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 80, -1));
 
         labelResulUsoCPU.setText("xxx");
-        panelControle.add(labelResulUsoCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 60, -1));
 
         labelTicket.setText("Ticket:");
-        panelControle.add(labelTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, 40));
 
-        resulTicket.setText("xxx");
-        panelControle.add(resulTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, -1, 40));
+        resulTicket.setText("x");
 
-        informacoes.setPreferredSize(new java.awt.Dimension(900, 105));
-        informacoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        javax.swing.GroupLayout panelControleLayout = new javax.swing.GroupLayout(panelControle);
+        panelControle.setLayout(panelControleLayout);
+        panelControleLayout.setHorizontalGroup(
+            panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelControleLayout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(botaoStart)
+                .addGap(18, 18, 18)
+                .addComponent(botaoPause)
+                .addGap(18, 18, 18)
+                .addComponent(botaoStop)
+                .addGap(18, 18, 18)
+                .addComponent(aumentaVelocidade)
+                .addGap(18, 18, 18)
+                .addComponent(diminuiVelocidade)
+                .addGap(18, 18, 18)
+                .addComponent(labelTicket)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(resulTicket)
+                .addGap(254, 254, 254)
+                .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelControleLayout.createSequentialGroup()
+                        .addComponent(labelExecutados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelResultadoExe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelControleLayout.createSequentialGroup()
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelControleLayout.createSequentialGroup()
+                                .addComponent(labelCPU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(24, 24, 24)
+                                .addComponent(labelResulUsoCPU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelTempFila, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelTempoVazao, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelResulVazao)
+                            .addComponent(labelResulTempoMedioFila))))
+                .addGap(54, 54, 54))
+        );
+        panelControleLayout.setVerticalGroup(
+            panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelControleLayout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelControleLayout.createSequentialGroup()
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botaoPause)
+                            .addComponent(botaoStop)
+                            .addComponent(aumentaVelocidade)
+                            .addComponent(diminuiVelocidade)
+                            .addComponent(botaoStart)
+                            .addComponent(resulTicket)
+                            .addComponent(labelTicket))
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelControleLayout.createSequentialGroup()
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCPU)
+                            .addComponent(labelResulUsoCPU))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTempFila)
+                            .addComponent(labelResulTempoMedioFila))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelTempoVazao)
+                            .addComponent(labelResulVazao))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelControleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelResultadoExe)
+                            .addComponent(labelExecutados))
+                        .addContainerGap())))
+        );
 
         info1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info1.setText("00");
-        informacoes.add(info1, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 23, -1, -1));
+        info1.setText("xx");
 
         info2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info2.setText("00");
-        informacoes.add(info2, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 23, -1, -1));
+        info2.setText("xx");
 
         info3.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info3.setText("00");
-        informacoes.add(info3, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 23, -1, -1));
+        info3.setText("xx");
 
         info4.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info4.setText("00");
-        informacoes.add(info4, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 23, -1, -1));
+        info4.setText("xx");
 
         info5.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info5.setText("00");
-        informacoes.add(info5, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 23, -1, -1));
+        info5.setText("xx");
 
         info6.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info6.setText("00");
-        informacoes.add(info6, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 23, -1, -1));
+        info6.setText("xx");
 
         info7.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info7.setText("00");
-        informacoes.add(info7, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 23, -1, -1));
+        info7.setText("xx");
 
         info8.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info8.setText("00");
-        informacoes.add(info8, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 23, -1, -1));
+        info8.setText("xx");
 
         info9.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info9.setText("00");
-        informacoes.add(info9, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 23, -1, -1));
+        info9.setText("xx");
 
         info10.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info10.setText("00");
-        informacoes.add(info10, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 23, -1, -1));
+        info10.setText("xx");
 
         info11.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info11.setText("00");
-        informacoes.add(info11, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 23, -1, -1));
+        info11.setText("xx");
 
         info12.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info12.setText("00");
-        informacoes.add(info12, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 23, -1, -1));
+        info12.setText("xx");
 
         info13.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info13.setText("00");
-        informacoes.add(info13, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 23, -1, -1));
+        info13.setText("xx");
 
         info14.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info14.setText("00");
-        informacoes.add(info14, new org.netbeans.lib.awtextra.AbsoluteConstraints(683, 23, -1, -1));
+        info14.setText("xx");
 
         info15.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info15.setText("00");
-        informacoes.add(info15, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 23, -1, -1));
+        info15.setText("xx");
 
         info16.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info16.setText("00");
-        informacoes.add(info16, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 44, -1, -1));
+        info16.setText("xx");
 
         info17.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info17.setText("00");
-        informacoes.add(info17, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 44, -1, -1));
+        info17.setText("xx");
 
         info18.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info18.setText("00");
-        informacoes.add(info18, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 44, -1, -1));
+        info18.setText("xx");
 
         info19.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info19.setText("00");
-        informacoes.add(info19, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 44, -1, -1));
+        info19.setText("xx");
 
         info20.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info20.setText("00");
-        informacoes.add(info20, new org.netbeans.lib.awtextra.AbsoluteConstraints(323, 44, -1, -1));
+        info20.setText("xx");
 
         info21.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info21.setText("00");
-        informacoes.add(info21, new org.netbeans.lib.awtextra.AbsoluteConstraints(363, 44, -1, -1));
+        info21.setText("xx");
 
         info22.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info22.setText("00");
-        informacoes.add(info22, new org.netbeans.lib.awtextra.AbsoluteConstraints(403, 44, -1, -1));
+        info22.setText("xx");
 
         info23.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info23.setText("00");
-        informacoes.add(info23, new org.netbeans.lib.awtextra.AbsoluteConstraints(443, 44, -1, -1));
+        info23.setText("xx");
 
         info24.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info24.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info24.setText("00");
-        informacoes.add(info24, new org.netbeans.lib.awtextra.AbsoluteConstraints(483, 44, -1, -1));
+        info24.setText("xx");
 
         info25.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info25.setText("00");
-        informacoes.add(info25, new org.netbeans.lib.awtextra.AbsoluteConstraints(523, 44, -1, -1));
+        info25.setText("xx");
 
         info26.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info26.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info26.setText("00");
-        informacoes.add(info26, new org.netbeans.lib.awtextra.AbsoluteConstraints(563, 44, -1, -1));
+        info26.setText("xx");
 
         info27.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info27.setText("00");
-        informacoes.add(info27, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 44, -1, -1));
+        info27.setText("xx");
 
         info28.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info28.setText("00");
-        informacoes.add(info28, new org.netbeans.lib.awtextra.AbsoluteConstraints(643, 44, -1, -1));
+        info28.setText("xx");
 
         info29.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info29.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info29.setText("00");
-        informacoes.add(info29, new org.netbeans.lib.awtextra.AbsoluteConstraints(683, 44, -1, -1));
+        info29.setText("xx");
 
         info30.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        info30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        info30.setText("00");
-        informacoes.add(info30, new org.netbeans.lib.awtextra.AbsoluteConstraints(723, 44, -1, -1));
+        info30.setText("xx");
 
-        labelPrioridade.setText("Prioridade:");
-        informacoes.add(labelPrioridade, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
-
-        labelTamanho.setText("Tamanho:");
-        informacoes.add(labelTamanho, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, -1, -1));
-
-        labelTicket2.setText("Ticket:");
-        informacoes.add(labelTicket2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
-
-        barraMenu.setMaximumSize(new java.awt.Dimension(900, 25));
-        barraMenu.setMinimumSize(new java.awt.Dimension(900, 25));
-        barraMenu.setPreferredSize(new java.awt.Dimension(900, 25));
+        javax.swing.GroupLayout informacoesLayout = new javax.swing.GroupLayout(informacoes);
+        informacoes.setLayout(informacoesLayout);
+        informacoesLayout.setHorizontalGroup(
+            informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, informacoesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info16)
+                    .addComponent(info1))
+                .addGap(20, 20, 20)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info17)
+                    .addComponent(info2))
+                .addGap(20, 20, 20)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info18)
+                    .addComponent(info3))
+                .addGap(23, 23, 23)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info19)
+                    .addComponent(info4))
+                .addGap(23, 23, 23)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info20)
+                    .addComponent(info5))
+                .addGap(23, 23, 23)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info21)
+                    .addComponent(info6))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info22)
+                    .addComponent(info7))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info23)
+                    .addComponent(info8))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info24)
+                    .addComponent(info9))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info25)
+                    .addComponent(info10))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info26)
+                    .addComponent(info11))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info27)
+                    .addComponent(info12))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info28)
+                    .addComponent(info13))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info29)
+                    .addComponent(info14))
+                .addGap(22, 22, 22)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(info30)
+                    .addComponent(info15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        informacoesLayout.setVerticalGroup(
+            informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(informacoesLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(info1)
+                    .addComponent(info2)
+                    .addComponent(info3)
+                    .addComponent(info4)
+                    .addComponent(info5)
+                    .addComponent(info6)
+                    .addComponent(info7)
+                    .addComponent(info8)
+                    .addComponent(info9)
+                    .addComponent(info10)
+                    .addComponent(info11)
+                    .addComponent(info12)
+                    .addComponent(info13)
+                    .addComponent(info14)
+                    .addComponent(info15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(informacoesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(info16)
+                    .addComponent(info17)
+                    .addComponent(info18)
+                    .addComponent(info19)
+                    .addComponent(info20)
+                    .addComponent(info21)
+                    .addComponent(info22)
+                    .addComponent(info23)
+                    .addComponent(info24)
+                    .addComponent(info25)
+                    .addComponent(info26)
+                    .addComponent(info27)
+                    .addComponent(info28)
+                    .addComponent(info29)
+                    .addComponent(info30))
+                .addGap(23, 23, 23))
+        );
 
         Algoritmos.setText("Algoritmos");
 
@@ -627,25 +746,27 @@ public class JFramePrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(panelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(informacoes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelControle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(panelPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(informacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelControle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 54, Short.MAX_VALUE)
+                .addComponent(panelTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(informacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(informacoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelControle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(panelControle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-  
+
+
+    
     private void botaoStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoStartActionPerformed
         botaoStart.setEnabled(false);
         botaoPause.setEnabled(true); 
@@ -668,7 +789,8 @@ public class JFramePrincipal extends javax.swing.JFrame {
                 }                
             }
         };
-        threadJFrame.start();        
+        threadJFrame.start();
+        
     }//GEN-LAST:event_botaoStartActionPerformed
     private void FIFOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FIFOActionPerformed
         escolhaAlgoritmo=1;
@@ -726,21 +848,13 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_diminuiVelocidadeActionPerformed
 
     private void botaoStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoStopActionPerformed
-        
         threadFlag = true; 
         botaoStart.setEnabled(true);
         botaoPause.setEnabled(false);
         Algoritmos.setEnabled(true);
-        Editar.setEnabled(true);
+        Editar.setEnabled(true); 
         
-        labelTamanho.setVisible(false);
-        labelTicket.setVisible(false);
-        labelTicket2.setVisible(false);
-        labelPrioridade.setVisible(false);
-        
-        Main.memoria.zeraProcessados();
         Main.memoria.clearMemoria();
-        
         zeraBarras();
         zeraPrioridades();
         zeraTamProcessos();
@@ -783,7 +897,7 @@ public class JFramePrincipal extends javax.swing.JFrame {
     
     public static void atualizaPrioridades() {
         for (int i=0; i < Main.memoria.processos.size(); ++i) {
-            infoPrioridades.get(i).setText(String.format("%.0f", Main.memoria.processos.get(i).getPrioridade()));
+            infoPrioridades.get(i).setText(String.format("%.2f", Main.memoria.processos.get(i).getPrioridade()));
             infoPrioridades.get(i).setVisible(true);
         }
     }
@@ -836,16 +950,19 @@ public class JFramePrincipal extends javax.swing.JFrame {
         resulTicket.setVisible(true);
     }
     
-    public static void atualizarLabelVazaoTempo() {
+    public static void atualizarLabelVazaoTempo()
+    {
         labelResulVazao.setText(String.format("%.2f", Main.calculadorTempo.calcularTempoVazao()*60) + " p/min");
     }
     
-    public static void atualizarLabelTempoMedioFila() {
+    public static void atualizarLabelTempoMedioFila()
+    {
         String s = String.format("%.2f", Main.calculadorTempo.calcularTempoMedioDeFilaSegundos()) + " s/p";
         labelResulTempoMedioFila.setText(s);
     }
     
-    public static void atualizarLabelUsoCPU() {
+    public static void atualizarLabelUsoCPU()
+    {
         labelResulUsoCPU.setText( String.format("%.2f%%",  (Main.calculadorTempo.getTempoUsoCPU() / (double) Main.calculadorTempo.getTempoExecucaoCriacao())*100 ));
     }
 
@@ -914,16 +1031,13 @@ public class JFramePrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel informacoes;
     private javax.swing.JLabel labelCPU;
     private javax.swing.JLabel labelExecutados;
-    public static javax.swing.JLabel labelPrioridade;
     public static javax.swing.JLabel labelResulTempoMedioFila;
     public static javax.swing.JLabel labelResulUsoCPU;
     public static javax.swing.JLabel labelResulVazao;
     public static javax.swing.JLabel labelResultadoExe;
-    public static javax.swing.JLabel labelTamanho;
     private javax.swing.JLabel labelTempFila;
     private javax.swing.JLabel labelTempoVazao;
-    public static javax.swing.JLabel labelTicket;
-    public static javax.swing.JLabel labelTicket2;
+    private javax.swing.JLabel labelTicket;
     private javax.swing.JLabel nomeAlgoritmo;
     private javax.swing.JPanel panelControle;
     private javax.swing.JPanel panelPrincipal;
